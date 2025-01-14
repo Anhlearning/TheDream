@@ -22,10 +22,10 @@ namespace Platformer {
         [SerializeField] float force;
         
         [Header("Jump Settings")]
-        [SerializeField] float jumpForce = 10f;
-        [SerializeField] float jumpDuration = 0.5f;
-        [SerializeField] float jumpCooldown = 0f;
-        [SerializeField] float gravityMultiplier = 3f;
+        // [SerializeField] float jumpForce = 10f;
+        // [SerializeField] float jumpDuration = 0.5f;
+        // [SerializeField] float jumpCooldown = 0f;
+        // [SerializeField] float gravityMultiplier = 3f;
         
 
 
