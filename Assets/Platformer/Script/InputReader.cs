@@ -13,7 +13,8 @@ namespace Platformer {
         public event UnityAction<bool> Jump = delegate { };
         public event UnityAction<bool> Dash = delegate { };
         public event UnityAction Attack = delegate { };
-
+        public event UnityAction Throw = delegate { };  
+        public event UnityAction MouseLeftClick= delegate { };
         PlayerInputActions inputActions;
         
         public Vector3 Direction => inputActions.Player.Move.ReadValue<Vector2>();
@@ -67,19 +68,6 @@ namespace Platformer {
                     break;
             }
         }
-
-        public void OnMouseControllCamera(InputAction.CallbackContext context)
-        {
-             switch (context.phase) {
-                case InputActionPhase.Started:
-                    EnableMouseControlCamera.Invoke();
-                    break;
-                case InputActionPhase.Canceled:
-                    DisableMouseControlCamera.Invoke();
-                    break;
-            }
-        }
-
         public void OnMouseThrow(InputAction.CallbackContext context)
         {
             switch (context.phase) {
@@ -90,6 +78,32 @@ namespace Platformer {
                     Debug.Log("Mouse Left Click Canceled"); 
                     break;
             }
+        }
+
+        public void OnControlerMouseLeft(InputAction.CallbackContext context)
+        {
+            switch (context.phase) {
+                case InputActionPhase.Started:
+                    EnableMouseControlCamera.Invoke();
+                    break;
+                case InputActionPhase.Canceled:
+                    DisableMouseControlCamera.Invoke();
+                    break;
+            }
+        }
+
+        public void OnThrowButton(InputAction.CallbackContext context)
+        {
+            if(context.phase == InputActionPhase.Started) {
+                Throw.Invoke(); 
+            }  
+        }
+
+        public void OnThrowMouseController(InputAction.CallbackContext context)
+        {
+            if(context.phase == InputActionPhase.Started) {
+                MouseLeftClick.Invoke(); 
+            }  
         }
     }
 }

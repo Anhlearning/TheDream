@@ -17,17 +17,10 @@ namespace Platformer {
         [SerializeField] float rotationSpeed = 15f;
         [SerializeField] float smoothTime = 0.2f;
         [SerializeField] float force;
-        
-        
-
-
         const float ZeroF = 0f;
-        
         Transform mainCam;
-        
         float currentSpeed;
         float velocity;
-
         Vector3 movement;
 
         static readonly int Speed = Animator.StringToHash("Speed");
